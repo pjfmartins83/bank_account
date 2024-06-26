@@ -1,0 +1,30 @@
+PajoBank App
+
+- O usuário ao acessar "/"
+  - Se não estiver logado.
+    - Fazer login
+    - Fazer signup
+  - Se ele estiver logado.
+    - Usuário deve ver uma saudação "Bem vindo Fulaninho ao Pajo Bank"
+    - Os dados da Conta Bancário do usuário deve estar presentes.
+      - account_id
+      - amount
+    - Features:
+      - Deposito
+        - Posui uma tela própria.
+          - <h1>Depósito</h1>
+          formulário de um campo
+            - Quantidade
+          - botão para realizar o depósito.
+          - Link para voltar para página da conta.
+      - Saque
+        - Possui uma tela própria.
+          - <h1>Saque</h1>
+          formulário de um campo
+            - Quantidade
+            - Validação do Formulário.
+              - Quantidade do saque não pode ser maior do que o saldo.
+                - Exibir mensagem:
+                  - Não realizar o saque. Saldo Insuficiente: saldo_disponível
+          - botão para realizar o saque.
+          - Link para voltar para página da conta.
