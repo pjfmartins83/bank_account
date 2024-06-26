@@ -1,0 +1,16 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}Pajo Bank{% endblock title %}</title>
+    </head>
+    <body>
+        <header>
+            <h1><a ref="{% url 'home' %}">Pajo Bank</a></h1>
+        </header>
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </body>
+</html>
