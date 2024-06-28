@@ -6,9 +6,13 @@
 <h2>Sign Up</h2>
 <form method="post">{% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Sign Up</button>
+    <button type="submit">Confirm</button>
 </form>
 
-<a href="{% url 'home' %}">Back to Home</a>
+<p>
+    <a href="{% url 'home' %}">
+      <button type="button">Cancel</button>
+    </a>
+</p>
 
 {% endblock content %}
