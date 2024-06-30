@@ -1,5 +1,9 @@
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
+from django.shortcuts import redirect
+from django.contrib import messages
 from django.views.generic import CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import TemplateView
 
 from .forms import CustomUserCreationForm
 from .models import BankAccount
@@ -14,3 +18,15 @@ class SignUpView(CreateView):
         response = super().form_valid(form)
         BankAccount.objects.create(owner=self.object, balance=0)
         return response
+
+
+class DashboardView(LoginRequiredMixin, TemplateView):
+    template_name = "dashboard.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        bank_account = BankAccount.objects.get(owner=user)
+        context["username"] = user.username
+        context["balance"] = bank_account.balance
+        return context
