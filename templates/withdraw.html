@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main>
+    <section>
+        <h1>Withdraw</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Withdraw</button>
+        </form>
+        <p>
+            <a href="{% url 'dashboard' %}">
+                <button type="button">Cancel</button>
+            </a>
+        </p>
+    </section>
+</main>
+{% endblock %}

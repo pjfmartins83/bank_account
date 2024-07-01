@@ -1,12 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h2>Welcome to Pajo Bank, {{ username }}.</h2>
-  <p>Your current balance is: R$ {{ balance }}.</p>
-  <p>
-    <a href="{% url 'home' %}">
-      <button type="button">Log Out</button>
-    </a>
-</p>
-<p>
+<main>
+    <section>
+        <h2>Welcome to Pajo Bank, {{ username }}.</h2>
+        <p>Your current balance is: R$ {{ balance }}.</p>
+        <div class="actions">
+            <p>
+                <a href="{% url 'deposit' %}">
+                    <button type="button">Deposit</button>
+                </a>
+            </p>
+            <p>
+                <a href="{% url 'withdraw' %}">
+                    <button type="button">Withdraw</button>
+                </a>
+            </p>
+            <p>
+                <a href="{% url 'home' %}">
+                    <button type="button">Log Out</button>
+                </a>
+            </p>
+        </div>
+    </section>
+</main>
 {% endblock %}

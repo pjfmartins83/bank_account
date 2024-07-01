@@ -18,3 +18,7 @@ class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = CustomUser
         fields = UserChangeForm.Meta.fields
+
+
+class TransactionForm(forms.Form):
+    amount = forms.DecimalField(max_digits=12, decimal_places=2)
