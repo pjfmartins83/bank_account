@@ -1,17 +1,5 @@
 {% extends "base.html" %}
 
-{% block title %}Home{% endblock title %}
-
 {% block content %}
-    <p>You are not logged in!</p>
-    <p>
-        <a href="{% url 'login' %}">
-          <button type="button">Log In</button>
-        </a>
-    </p>
-    <p>
-        <a href="{% url 'signup' %}">
-          <button type="button">Sign Up</button>
-        </a>
-    </p>
+    
 {% endblock content %}
