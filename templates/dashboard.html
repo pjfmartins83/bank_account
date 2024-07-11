@@ -1,27 +1,33 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block content %}
-<main>
-    <section>
-        <h2>Welcome to Pajo Bank, {{ username }}.</h2>
-        <p>Your current balance is: R$ {{ balance }}.</p>
-        <div class="actions">
-            <p>
-                <a href="{% url 'deposit' %}">
-                    <button type="button">Deposit</button>
-                </a>
-            </p>
-            <p>
-                <a href="{% url 'withdraw' %}">
-                    <button type="button">Withdraw</button>
-                </a>
-            </p>
-            <p>
-                <a href="{% url 'home' %}">
-                    <button type="button">Log Out</button>
-                </a>
-            </p>
+<style>
+    .fixed-sidebar {
+        position: fixed;
+        left: 0;
+        top: 61px; /* Adjust this value based on the height of your navbar */
+        height: calc(100% - 61x); /* Subtract the navbar height */
+        padding-top: 0;
+        background-color: #f8f9fa;
+        overflow-y: auto; /* Optional: Adds scrolling if the content exceeds the viewport height */
+    }
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 fixed-sidebar">
+            <nav class="nav flex-column">
+                <a class="nav-link" href="{% url 'deposit' %}">Deposit</a>
+                <a class="nav-link" href="{% url 'withdraw' %}">Withdraw</a>
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </nav>
         </div>
-    </section>
-</main>
+        <div class="col-md-9 offset-md-3">
+            <!-- Main content here -->
+            {% block main_content %}
+            <h2>Welcome to Pajo Bank, {{ username }}.</h2>
+            <p>Your current balance is: R$ {{ balance }}.</p>
+            {% endblock %}
+        </div>
+    </div>
+</div>
 {% endblock %}
