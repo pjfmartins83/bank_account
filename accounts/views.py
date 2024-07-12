@@ -1,9 +1,19 @@
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView, FormView
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django.contrib.auth.views import LoginView
+from django.contrib import messages
 from .forms import CustomUserCreationForm, TransactionForm
 from .models import BankAccount
+
+
+class CustomLoginView(LoginView):
+    template_name = 'registration/login.html'
+    redirect_authenticated_user = True
+
+    def form_invalid(self, form):
+        messages.error(self.request, "Invalid Username or Password.")
+        return super().form_invalid(form)
 
 
 class SignUpView(CreateView):
